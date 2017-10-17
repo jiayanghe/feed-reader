@@ -58,14 +58,14 @@ $(function() {
 
         //Test if loadFeed() adds content to the container.
         it('are not empty', function(done) {
-            expect($('.feed .entry').toBeTruthy();//Testing if there's any child elements in the container.
+            expect($('.feed .entry')).toBeTruthy();//Testing if there's any child elements in the container.
             done();
         });
 
     });
 
     describe('New Feed Selection', function() {
-        let feed1
+        let feed1;
         beforeEach(function(done) {
             loadFeed(1, done);
             feed1 = $('.entry').html();
