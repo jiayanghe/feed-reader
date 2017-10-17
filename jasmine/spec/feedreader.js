@@ -14,7 +14,7 @@ $(function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.url).toBeDefined();
                 expect(feed.url.length).not.toBe(0);
-            })
+            });
             
         });
 
@@ -24,7 +24,7 @@ $(function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.name).toBeDefined();
                 expect(feed.name.length).not.toBe(0);
-            })
+            });
             
         }); 
 
@@ -35,7 +35,7 @@ $(function() {
 
         //Test if the menu is hidden on load.
         it('is hidden by default', function() {
-            expect(document.body.classList).toContain('menu-hidden')
+            expect(document.body.classList).toContain('menu-hidden');
         });
 
         //Test if the visibility of the menu can be toggled by clicking the menu icon.
