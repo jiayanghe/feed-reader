@@ -53,24 +53,21 @@ $(function() {
     describe('Initial Entries', function() {
         //Using beforeEach and done becuase loadFeed is asynchronous.
         beforeEach(function(done) {
-            loadFeed(0, function() {
-                done();
-            });
+            loadFeed(0, done);
         });
 
         //Test if loadFeed() adds content to the container.
         it('are not empty', function(done) {
-            expect($('.feed').children).toBeTruthy();//Testing if there's any child elements in the container.
+            expect($('.feed .entry').toBeTruthy();//Testing if there's any child elements in the container.
             done();
         });
 
     });
 
     describe('New Feed Selection', function() {
+        let feed1
         beforeEach(function(done) {
-            loadFeed(1, function() {
-                done();
-            });
+            loadFeed(1, done);
             feed1 = $('.entry').html();
         
         });
@@ -78,10 +75,10 @@ $(function() {
         //Test if the content changes when loadFeed() loads new feed.
         it('content changes', function(done) {
             loadFeed(2, function() {
+                let feed2 = $('.entry').html();
+                expect(feed2).not.toBe(feed1);
                 done();
             });
-            let feed2 = $('.entry').html();
-            expect(feed2).not.toBe(feed1);
             done();
         });
 
