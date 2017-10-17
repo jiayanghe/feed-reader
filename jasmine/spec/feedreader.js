@@ -57,9 +57,8 @@ $(function() {
         });
 
         //Test if loadFeed() adds content to the container.
-        it('are not empty', function(done) {
-            expect($('.feed .entry')).toBeTruthy();//Testing if there's any child elements in the container.
-            done();
+        it('are not empty', function() {
+            expect($('.feed .entry').length).not.toBe(0);//Testing if there's any child elements in the container.
         });
 
     });
@@ -67,9 +66,11 @@ $(function() {
     describe('New Feed Selection', function() {
         let feed1;
         beforeEach(function(done) {
-            loadFeed(1, done);
+            loadFeed(1, function() {
             feed1 = $('.entry').html();
-        
+            done();
+            });
+            
         });
 
         //Test if the content changes when loadFeed() loads new feed.
@@ -79,7 +80,7 @@ $(function() {
                 expect(feed2).not.toBe(feed1);
                 done();
             });
-            done();
+
         });
 
 
